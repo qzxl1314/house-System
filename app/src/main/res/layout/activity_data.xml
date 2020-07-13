@@ -4,60 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.data">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:gravity="center"
-            android:text="租客录入"
-            android:textSize="36sp" />
-
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入房号"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextPersonName2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入姓名"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextPersonName3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入身份证"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextPersonName4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入电话"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextPersonName5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入租金"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,8 +62,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="请输入起始时间"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Name" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName7"
@@ -79,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="请输入终止时间"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Name" />
 
         </LinearLayout>
 
@@ -89,8 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入交款时间"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextMultiLine"
@@ -98,12 +90,11 @@
             android:layout_height="157dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="请输入备注"
             android:inputType="textMultiLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <Button
@@ -119,16 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="退出" />
-
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="注：时间的格式请以：xxxx-xx，即年-月的格式来输入"
-            android:textColor="@color/design_default_color_error" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

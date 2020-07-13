@@ -6,13 +6,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
     private String create_info = "create table info("
-            + "info_id integer primary key autoincrement not null ,"
+            + "info_id integer primary key autoincrement not null ,"//id
             + "info_house varchar(20) not null ,"//房号
-            + "info_name varchar(20) not null ,"
-            + "work_name varchar(20) not null,"
-            + "info_what varchar(20) not null,"
-            + "info_cpntent varchar(100),"
-            + "info_time datetime  not null)";
+            + "info_name varchar(20) not null ,"//租客姓名
+            + "info_person_id varchar(20) not null,"//身份证
+            + "info_phone varchar(20) not null,"//电话
+            + "info_money varchar(100) not null,"//租金
+            + "info_start varchar(100) not null,"//起始时间
+            + "info_end varchar(20) not null,"//终止时间
+            + "info_time datetime not null,"//交款期限
+            + "info_content varchar(100) )";//备注
 
     /**
      *
