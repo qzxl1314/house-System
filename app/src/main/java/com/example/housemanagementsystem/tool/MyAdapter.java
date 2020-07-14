@@ -53,8 +53,8 @@ public class MyAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.house.setText("房号"+mList.get(i).get("info_house"));
-        viewHolder.name.setText("租客名"+mList.get(i).get("info_name"));
+        viewHolder.house.setText("房号:"+mList.get(i).get("info_house"));
+        viewHolder.name.setText("租客名:"+mList.get(i).get("info_name"));
         viewHolder.data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

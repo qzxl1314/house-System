@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">租客管理系统</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">查询</string>
+    <string name="title_dashboard">录入</string>
+    <string name="title_notifications">欠缴清单</string>
     <string name="title_select">查询</string>
 </resources>

@@ -58,7 +58,6 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 boolean e=isEmpty();
-                System.out.println("fa"+e);
                 if (e){
                     dashboardViewModel.per.setHouse(house.getText().toString());
                     dashboardViewModel.per.setName(name.getText().toString());
@@ -83,7 +82,8 @@ public class DashboardFragment extends Fragment {
                     values.put("info_content", dashboardViewModel.per.getContent());
                     //执行插入操作
                     long a=dashboardViewModel.sqldb.insert("info", null, values);
-                    if (a==1){
+                    System.out.println(a+"asd");
+                    if (a!=0){
                         Toast.makeText(root.getContext(),"插入成功",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(root.getContext(),"插入失败，格式有误",Toast.LENGTH_LONG).show();
