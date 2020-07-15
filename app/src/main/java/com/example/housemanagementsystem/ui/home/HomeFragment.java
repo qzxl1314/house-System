@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,18 +38,48 @@ public class HomeFragment extends Fragment {
     private ListView a;
     private List<Map<String,String>> data=new LinkedList<>();
     private View root;
+    private EditText Name;
+    private EditText House;
+    Button in ;
+    Button clear;
+    String name;
+    String house;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         root = inflater.inflate(R.layout.fragment_home, container, false);
         a=root.findViewById(R.id.list);
+        Name=root.findViewById(R.id.editTextTextPersonName8);
+        House=root.findViewById(R.id.editTextTextPersonName9);
+        in=root.findViewById(R.id.button3);
+        clear=root.findViewById(R.id.button4);
         homeViewModel.dbhelper=new DBHelper(root.getContext(), "social", null, 1);//建立数据库
         homeViewModel.per=new person();
         data=homeViewModel.queryall();
         show(root);
+        clear.setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clear();
+            }
+        });
+        in.setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data.clear();
+                name=Name.getText().toString();
+                house=House.getText().toString();
+                data=homeViewModel.query(name,house);
+                show(root);
+            }
+        });
         return root;
     }
+    private void clear(){
+        House.setText("");
+        Name.setText("");
+    }//清空text控件内容
     @Override
     public void onResume() {
         super.onResume();
