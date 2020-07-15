@@ -52,11 +52,12 @@ public class HomeViewModel extends ViewModel {
         List<Map<String,String>> b = new LinkedList<>();
         String where="";
         LinkedList<String> arg=new LinkedList<>();
-        if (name!=""){
+        System.out.println(name+"asd"+house);
+        if (!name.isEmpty()){
             where+="info_name=?";
             arg.add(name);
         }
-        if (house!="") {
+        if (!house.isEmpty()) {
             if (!where.isEmpty())
                 where+=" and ";
             where += "info_house=?";
@@ -67,7 +68,11 @@ public class HomeViewModel extends ViewModel {
             a[i]=arg.get(i);
         }
         //创建游标
-        Cursor mCursor = sqldb.query("info", null,where , a, null, null,
+
+        if (where.equals(""))
+            where=null;
+        System.out.println("Ddf"+where+a.toString());
+        Cursor mCursor = sqldb.query("info", null,where, a, null, null,
                 null);
         //游标置顶
         mCursor.moveToFirst();

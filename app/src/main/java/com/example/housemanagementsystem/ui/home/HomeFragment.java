@@ -50,8 +50,8 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         root = inflater.inflate(R.layout.fragment_home, container, false);
         a=root.findViewById(R.id.list);
-        Name=root.findViewById(R.id.editTextTextPersonName8);
-        House=root.findViewById(R.id.editTextTextPersonName9);
+        Name=root.findViewById(R.id.editTextTextPersonName9);
+        House=root.findViewById(R.id.editTextTextPersonName8);
         in=root.findViewById(R.id.button3);
         clear=root.findViewById(R.id.button4);
         homeViewModel.dbhelper=new DBHelper(root.getContext(), "social", null, 1);//建立数据库

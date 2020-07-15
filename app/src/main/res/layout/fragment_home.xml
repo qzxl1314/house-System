@@ -35,16 +35,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="请输入房号" />
+                android:hint="请输入房号"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="请输入姓名" />
+                android:hint="请输入姓名"
+                android:inputType="textPersonName" />
 
             <LinearLayout
                 android:layout_width="match_parent"

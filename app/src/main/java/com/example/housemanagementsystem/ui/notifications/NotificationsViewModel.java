@@ -1,19 +1,17 @@
 package com.example.housemanagementsystem.ui.notifications;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.housemanagementsystem.tool.DBHelper;
+import com.example.housemanagementsystem.tool.person;
+
 public class NotificationsViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
-
-    public NotificationsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
-    }
-
-    public LiveData<String> getText() {
-        return mText;
-    }
+    public DBHelper dbhelper;
+    public person per;
+    public SQLiteDatabase sqldb;
 }
