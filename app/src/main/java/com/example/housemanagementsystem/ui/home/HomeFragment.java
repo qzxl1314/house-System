@@ -3,6 +3,7 @@ package com.example.housemanagementsystem.ui.home;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.example.housemanagementsystem.tool.DBHelper;
 import com.example.housemanagementsystem.tool.MyAdapter;
 import com.example.housemanagementsystem.tool.Uility;
 import com.example.housemanagementsystem.tool.person;
+import com.example.housemanagementsystem.ui.data;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -33,17 +35,24 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private ListView a;
     private List<Map<String,String>> data=new LinkedList<>();
+    private View root;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        root = inflater.inflate(R.layout.fragment_home, container, false);
         a=root.findViewById(R.id.list);
         homeViewModel.dbhelper=new DBHelper(root.getContext(), "social", null, 1);//建立数据库
         homeViewModel.per=new person();
         data=homeViewModel.queryall();
         show(root);
         return root;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        data=homeViewModel.queryall();
+        show(root);
     }
     public void show(final View root) {
         MyAdapter adapter;
@@ -82,7 +91,10 @@ public class HomeFragment extends Fragment {
                             }).setPositiveButton("删除", new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int which) {
-
+                                    String id=data.get(i).get("info_id");
+                                    delete(id);
+                                    data=homeViewModel.queryall();
+                                    show(root);
                                 }
 
                             }).create();  //创建对话框
@@ -94,10 +106,19 @@ public class HomeFragment extends Fragment {
             adapter.setOnItemDataClickListener(new MyAdapter.onItemdataListener() {
                 @Override
                 public void onDataClick(final int i) {
-
-
+                    String id=data.get(i).get("info_id");
+                    Intent intent = new Intent(root.getContext(),com.example.housemanagementsystem.ui.data.class);//启动MainActivity
+                    intent.putExtra("info_id",id);//将data信息用putExtra（）存进intent
+                    startActivity(intent);
                 }
             });
         }
+    }
+    public void delete(String id){
+        homeViewModel.sqldb = homeViewModel.dbhelper.getWritableDatabase();
+        //第二个参数是WHERE语句（即执行条件，删除哪条数据）
+        //第三个参数是WHERE语句中占位符（即"?"号）的填充值
+        homeViewModel.sqldb.delete("info", "info_id=?", new String[]{id});//删除name的值是jack的那条记录
+        Toast.makeText(root.getContext(),"删除成功",Toast.LENGTH_LONG).show();
     }
 }
