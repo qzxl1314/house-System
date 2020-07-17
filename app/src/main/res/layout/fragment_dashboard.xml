@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="请输入交款时间"
+                    android:hint="请输入交款时间(如：2020-07）"
                     android:inputType="textPersonName" />
 
                 <EditText

@@ -76,6 +76,7 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
     private void clear(){
         House.setText("");
         Name.setText("");

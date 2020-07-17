@@ -36,6 +36,7 @@ public class NotificationsFragment extends Fragment {
     private NotificationsViewModel notificationsViewModel;
     private ListView a;
     private time Date=new time();
+    private TextView A;
     View root;
     private List<Map<String,String>> data=new LinkedList<>();
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,6 +49,8 @@ public class NotificationsFragment extends Fragment {
         notificationsViewModel.per=new person();
         data=notificationsViewModel.queryall(Date.getTime());
         show(root);
+        A=root.findViewById(R.id.textView3);
+        A.setText("现在时间为："+Date.getTime());
         return root;
     }
     public void show(final View root) {
@@ -117,6 +120,9 @@ public class NotificationsFragment extends Fragment {
         notificationsViewModel.sqldb.delete("info", "info_id=?", new String[]{id});//删除name的值是jack的那条记录
         Toast.makeText(root.getContext(),"删除成功",Toast.LENGTH_LONG).show();
     }
-
-
+    public void onResume() {
+        super.onResume();
+        data=notificationsViewModel.queryall(Date.getTime());
+        show(root);
+    }
 }

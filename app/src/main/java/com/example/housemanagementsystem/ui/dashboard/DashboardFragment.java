@@ -32,7 +32,7 @@ public class DashboardFragment extends Fragment {
      EditText end;
      EditText time;
      EditText content;
-
+    TextView a;
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

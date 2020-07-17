@@ -24,11 +24,13 @@ public class NotificationsViewModel extends ViewModel {
         sqldb = dbhelper.getReadableDatabase();
         List<Map<String,String>> a = new LinkedList<>();
         //创建游标
-        Cursor mCursor = sqldb.query("info", null, "time<=?", new String[]{data}, null, null,
+        System.out.println("asd+"+data);
+        Cursor mCursor = sqldb.query("info", null, "info_time=?", new String[]{data}, null, null,
                 null);
         //游标置顶
         mCursor.moveToFirst();
         //遍历
+        System.out.println(mCursor.getCount());
         if (mCursor.getCount() != 0) {
             do {
                 HashMap<String,String> map = new HashMap<>();
